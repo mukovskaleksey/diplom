@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пользователь — Support Desk</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="page">
+    <header class="topbar">
+        <div class="topbar-left">
+            <h1>Страница пользователя</h1>
+            <p id="userWelcome">Создание обращений, просмотр собственных тикетов и переписка со специалистом.</p>
+        </div>
+
+        <div class="topbar-right">
+            <span id="userBadge" class="small-link static-badge"></span>
+            <button id="logoutBtn" class="secondary" type="button">Выйти</button>
+        </div>
+    </header>
+
+    <div class="layout-3">
+        <aside class="left-column">
+            <section class="card">
+                <h2>Новое обращение</h2>
+
+                <label for="message">Сообщение</label>
+                <textarea id="message" placeholder="Опишите проблему или вопрос..."></textarea>
+
+                <button id="createTicketBtn" class="full">Отправить обращение</button>
+            </section>
+
+            <section class="card">
+                <h2>Фильтр</h2>
+
+                <label for="searchInput">Поиск по тексту или номеру обращения</label>
+                <input id="searchInput" type="text" placeholder="Поиск..." />
+
+                <button id="refreshBtn" class="secondary full">Обновить список</button>
+            </section>
+        </aside>
+
+        <section class="card">
+            <h2>Мои обращения</h2>
+            <div id="ticketList" class="ticket-list"></div>
+        </section>
+
+        <section class="right-column">
+            <section class="card">
+                <h2>Карточка обращения</h2>
+                <div id="ticketDetails" class="ticket-details">
+                    <p class="muted">Выберите тикет из списка.</p>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Чат</h2>
+
+                <div id="chatStatus" class="chat-placeholder">
+                    Выберите обращение, чтобы открыть чат.
+                </div>
+
+                <div id="chatMessages" class="chat-messages"></div>
+
+                <div class="chat-input-block">
+                    <label for="chatInput">Сообщение</label>
+                    <textarea id="chatInput" placeholder="Введите сообщение..."></textarea>
+                    <button id="sendMessageBtn" class="full">Отправить</button>
+                </div>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="./common.js"></script>
+<script src="./user.js"></script>
+</body>
+</html>

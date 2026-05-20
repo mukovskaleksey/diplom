@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Специалист — Support Desk</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="page">
+    <header class="topbar">
+        <div class="topbar-left">
+            <h1>Страница специалиста</h1>
+            <p id="specialistWelcome">Пул обращений, мои задачи, управление тикетами и чат с пользователем.</p>
+        </div>
+
+        <div class="topbar-right">
+            <span id="specialistBadge" class="small-link static-badge"></span>
+            <button id="logoutBtn" class="secondary" type="button">Выйти</button>
+        </div>
+    </header>
+
+    <div class="stats">
+        <div class="stat-card">
+            <span class="stat-label">Всего задач</span>
+            <span class="stat-value" id="poolCount">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Мои задачи</span>
+            <span class="stat-value" id="myCount">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Новые</span>
+            <span class="stat-value" id="newCount">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Закрытые</span>
+            <span class="stat-value" id="closedCount">0</span>
+        </div>
+    </div>
+
+    <div style="height: 24px;"></div>
+
+    <div class="layout-2">
+        <section class="card">
+            <h2>Обращения</h2>
+
+            <div class="toolbar">
+                <div style="min-width: 280px;">
+                    <label for="searchInput">Поиск</label>
+                    <input id="searchInput" type="text" placeholder="Поиск по обращениям..." />
+                </div>
+
+                <div style="display: flex; align-items: end;">
+                    <button id="refreshBtn" class="secondary">Обновить</button>
+                </div>
+            </div>
+
+            <div class="tab-buttons">
+                <button id="poolTabBtn" class="tab-button active">Пул задач</button>
+                <button id="myTabBtn" class="tab-button">Мои задачи</button>
+            </div>
+
+            <div id="ticketList" class="ticket-list"></div>
+        </section>
+
+        <section class="right-column">
+            <section class="card">
+                <h2>Карточка обращения</h2>
+                <div id="ticketDetails" class="ticket-details">
+                    <p class="muted">Выберите обращение из списка.</p>
+                </div>
+
+                <div class="actions-row">
+                    <button id="assignBtn">Взять в работу</button>
+                    <button id="closeBtn" class="secondary">Закрыть тикет</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Чат</h2>
+
+                <div id="chatStatus" class="chat-placeholder">
+                    Выберите обращение, чтобы открыть чат.
+                </div>
+
+                <div id="chatMessages" class="chat-messages"></div>
+
+                <div class="chat-input-block">
+                    <label for="chatInput">Сообщение</label>
+                    <textarea id="chatInput" placeholder="Введите сообщение..."></textarea>
+                    <button id="sendMessageBtn" class="full">Отправить</button>
+                </div>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="./common.js"></script>
+<script src="./specialist.js"></script>
+</body>
+</html>

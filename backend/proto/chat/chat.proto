@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "proto/chat;chatpb";
+
+message Chat {
+  int64 id = 1;
+  int64 ticket_id = 2;
+  int64 user_id = 3;
+  int64 specialist_id = 4;
+  string created_at = 5;
+  string updated_at = 6;
+}
+
+message Message {
+  int64 id = 1;
+  int64 chat_id = 2;
+  string sender_type = 3;
+  int64 sender_id = 4;
+  string body = 5;
+  string created_at = 6;
+}
+
+message GetOrCreateChatByTicketRequest {
+  int64 ticket_id = 1;
+  int64 user_id = 2;
+  int64 specialist_id = 3;
+}
+
+message GetOrCreateChatByTicketResponse {
+  Chat chat = 1;
+  bool created = 2;
+}
+
+message GetChatByTicketRequest {
+  int64 ticket_id = 1;
+}
+
+message GetChatByTicketResponse {
+  Chat chat = 1;
+}
+
+message GetMessagesRequest {
+  int64 chat_id = 1;
+}
+
+message GetMessagesResponse {
+  repeated Message messages = 1;
+}
+
+message SendMessageRequest {
+  int64 chat_id = 1;
+  string sender_type = 2;
+  int64 sender_id = 3;
+  string body = 4;
+}
+
+message SendMessageResponse {
+  Message message = 1;
+}
+
+service ChatService {
+  rpc GetOrCreateChatByTicket(GetOrCreateChatByTicketRequest) returns (GetOrCreateChatByTicketResponse);
+  rpc GetChatByTicket(GetChatByTicketRequest) returns (GetChatByTicketResponse);
+  rpc GetMessages(GetMessagesRequest) returns (GetMessagesResponse);
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+}

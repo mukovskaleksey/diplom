@@ -1,0 +1,7 @@
+app:
+  name: api-gateway
+  port: 8078
+
+core_service:
+  host: localhost
+  port: 50051

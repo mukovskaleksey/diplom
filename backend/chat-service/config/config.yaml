@@ -1,0 +1,13 @@
+app:
+  name: chat-service
+
+grpc:
+  port: 50089
+
+postgres:
+  host: localhost
+  port: 5426
+  db_name: chat
+  user: postgres
+  password: postgres
+  ssl_mode: disable

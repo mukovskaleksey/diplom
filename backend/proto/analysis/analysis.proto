@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package analysis;
+
+option go_package = "backend/proto/analysis;analysispb";
+
+service AnalysisService {
+  rpc ClassifyMessage(ClassifyMessageRequest) returns (ClassifyMessageResponse);
+}
+
+message ClassifyMessageRequest {
+  string message = 1;
+}
+
+message ClassifyMessageResponse {
+  string intent = 1;
+  string raw_category = 2;
+  string category = 3;
+  float confidence = 4;
+  string translated_text = 5;
+}

@@ -1,0 +1,13 @@
+app:
+  name: core-service
+
+grpc:
+  port: 50051
+
+postgres:
+  host: localhost
+  port: 5431
+  db_name: support
+  user: postgres
+  password: postgres
+  ssl_mode: disable
