@@ -17,7 +17,7 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
-from sklearn.svm import LinearSVC
+from sklearn.linear_model import LogisticRegression
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,7 +94,12 @@ def build_pipeline() -> Pipeline:
             ),
             (
                 "clf",
-                LinearSVC(C=1.0, random_state=42),
+                LogisticRegression(
+                    C=1.0,
+                    max_iter=1000,
+                    random_state=42,
+                    multi_class="auto",
+                ),
             ),
         ]
     )
